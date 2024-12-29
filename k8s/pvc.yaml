@@ -3,14 +3,14 @@ kind: PersistentVolumeClaim
 
 metadata:
   name: 1st-pvc
-
+  
 spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: standard
+  storageClassName: 1st-storage-class
   accessModes:
     - ReadWriteOnce
-  selector:
-    matchLabels:
-      app: myapp
+  # selector:
+  #   matchLabels:
+  #     name: 1st-pvc

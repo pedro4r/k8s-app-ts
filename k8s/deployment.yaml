@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: app-ts
-        image: pedro4r/app-ts:v14
+        image: pedro4r/app-ts:v15
         imagePullPolicy: IfNotPresent
         envFrom:
           - configMapRef:
@@ -75,4 +75,12 @@ spec:
           limits:
             cpu: "700m"
             memory: "256Mi"
+        volumeMounts:
+          - name: app-ts-data
+            mountPath: /usr/src/app/uploads
+      volumes:
+        - name: app-ts-data
+          persistentVolumeClaim:
+            claimName: 1st-pvc
+
             

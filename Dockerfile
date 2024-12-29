@@ -12,7 +12,7 @@ RUN npm run build
 RUN npm prune --production
 
 FROM node:20.17.0 AS production
-WORKDIR /usr/src/path
+WORKDIR /usr/src/app
 
 COPY --from=builder /usr/src/app/package.json ./package.json
 COPY --from=builder /usr/src/app/dist ./dist
